@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0c384a31-6de5-4556-a425-762c31ab8ebe" activeEnvironment="Default" name="Retail3" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="&lt;all>"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="4ad5868d-6392-4b19-b47a-f95e3461e893" wsaVersion="NONE" name="RetailAppBinding" type="wsdl" bindingName="{http://localhost/retail/namespaces}RetailAppBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:99/retail/retail.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:99/retail/retail.php?wsdl"><con:part><con:url>http://localhost:99/retail/retail.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://localhost/retail/namespaces" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost/retail/namespaces" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://localhost/retail/namespaces">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="credentials">
+        <xsd:all>
+          <xsd:element name="username" type="xsd:string"/>
+          <xsd:element name="password" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="loginresponse">
+        <xsd:all>
+          <xsd:element name="loginusername" type="xsd:string"/>
+          <xsd:element name="sessionid" type="xsd:string"/>
+          <xsd:element name="role" type="xsd:string"/>
+          <xsd:element name="loginstatus" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="testBook">
+        <xsd:all>
+          <xsd:element name="catgoryName" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categoryadddetail">
+        <xsd:all>
+          <xsd:element name="categoryname" type="xsd:string"/>
+          <xsd:element name="catid" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categoryadddetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:categoryadddetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allcaties">
+        <xsd:all>
+          <xsd:element name="categorydetails" type="tns:categoryadddetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addnewproductdetails">
+        <xsd:all>
+          <xsd:element name="category_name" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="available_quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="proddetail">
+        <xsd:all>
+          <xsd:element name="category_name" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="product_id" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="proddetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:proddetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allproductsadded">
+        <xsd:all>
+          <xsd:element name="productdetails" type="tns:proddetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addproductdetails">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="available_quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateproduct">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateproducts">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:updateproduct[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="updateproductdetails">
+        <xsd:all>
+          <xsd:element name="productdetails" type="tns:updateproducts"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="productdetail">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="product_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="productdetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:productdetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="sessiondetail">
+        <xsd:all>
+          <xsd:element name="sessionid" type="xsd:string"/>
+          <xsd:element name="username" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="sessiondetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:sessiondetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allprods">
+        <xsd:all>
+          <xsd:element name="allproducts" type="tns:productdetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocartReq">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocart">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocartdetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:addtocart[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="cart">
+        <xsd:all>
+          <xsd:element name="cart_status" type="tns:addtocartdetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removefromCartReq">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categorydetail">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="category_name" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categorydetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:categorydetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allcats">
+        <xsd:all>
+          <xsd:element name="allcategories" type="tns:categorydetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cartproduct">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="prod_name" type="xsd:string"/>
+          <xsd:element name="prod_quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cartproducts">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:cartproduct[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="cartprods">
+        <xsd:all>
+          <xsd:element name="cart" type="tns:cartproducts"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="chkout">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="checkout">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:chkout[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="checkoutprods">
+        <xsd:all>
+          <xsd:element name="checkedout_items" type="tns:checkout"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="RetailLoginRequest">
+    <part name="credentials" type="tns:credentials"/>
+  </message>
+  <message name="RetailLoginResponse">
+    <part name="return" type="tns:loginresponse"/>
+  </message>
+  <message name="addcategoryRequest">
+    <part name="categorydetails" type="tns:testBook"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addcategoryResponse">
+    <part name="return" type="tns:allcaties"/>
+  </message>
+  <message name="addproductRequest">
+    <part name="productdetails" type="tns:addnewproductdetails"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addproductResponse">
+    <part name="return" type="tns:allproductsadded"/>
+  </message>
+  <message name="updateproductRequest">
+    <part name="productdetails" type="tns:addproductdetails"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="updateproductResponse">
+    <part name="return" type="tns:updateproductdetails"/>
+  </message>
+  <message name="GetAllProductsRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="GetAllProductsResponse">
+    <part name="return" type="tns:allprods"/>
+  </message>
+  <message name="searchProductRequest">
+    <part name="productname" type="xsd:string"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="searchProductResponse">
+    <part name="return" type="tns:allprods"/>
+  </message>
+  <message name="addProductsToCartRequest">
+    <part name="addtocart" type="tns:addtocartReq"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addProductsToCartResponse">
+    <part name="return" type="tns:cart"/>
+  </message>
+  <message name="removeFromCartRequest">
+    <part name="remove_from_cart" type="tns:removefromCartReq"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="removeFromCartResponse">
+    <part name="return" type="tns:cart"/>
+  </message>
+  <message name="GetAllCategoriesRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="GetAllCategoriesResponse">
+    <part name="return" type="tns:allcats"/>
+  </message>
+  <message name="getAllProductsInCartRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="getAllProductsInCartResponse">
+    <part name="return" type="tns:cartprods"/>
+  </message>
+  <message name="checkoutRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="checkoutResponse">
+    <part name="return" type="tns:checkoutprods"/>
+  </message>
+  <portType name="RetailAppPortType">
+    <operation name="RetailLogin">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:RetailLoginRequest"/>
+      <output message="tns:RetailLoginResponse"/>
+    </operation>
+    <operation name="addcategory">
+      <documentation>Add a category</documentation>
+      <input message="tns:addcategoryRequest"/>
+      <output message="tns:addcategoryResponse"/>
+    </operation>
+    <operation name="addproduct">
+      <documentation>Add a category</documentation>
+      <input message="tns:addproductRequest"/>
+      <output message="tns:addproductResponse"/>
+    </operation>
+    <operation name="updateproduct">
+      <documentation>Update a product</documentation>
+      <input message="tns:updateproductRequest"/>
+      <output message="tns:updateproductResponse"/>
+    </operation>
+    <operation name="GetAllProducts">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:GetAllProductsRequest"/>
+      <output message="tns:GetAllProductsResponse"/>
+    </operation>
+    <operation name="searchProduct">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:searchProductRequest"/>
+      <output message="tns:searchProductResponse"/>
+    </operation>
+    <operation name="addProductsToCart">
+      <documentation>Add products to cart</documentation>
+      <input message="tns:addProductsToCartRequest"/>
+      <output message="tns:addProductsToCartResponse"/>
+    </operation>
+    <operation name="removeFromCart">
+      <documentation>Add products to cart</documentation>
+      <input message="tns:removeFromCartRequest"/>
+      <output message="tns:removeFromCartResponse"/>
+    </operation>
+    <operation name="GetAllCategories">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:GetAllCategoriesRequest"/>
+      <output message="tns:GetAllCategoriesResponse"/>
+    </operation>
+    <operation name="getAllProductsInCart">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:getAllProductsInCartRequest"/>
+      <output message="tns:getAllProductsInCartResponse"/>
+    </operation>
+    <operation name="checkout">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:checkoutRequest"/>
+      <output message="tns:checkoutResponse"/>
+    </operation>
+  </portType>
+  <binding name="RetailAppBinding" type="tns:RetailAppPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RetailLogin">
+      <soap:operation soapAction="urn:RetailApp#RetailLogin" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addcategory">
+      <soap:operation soapAction="urn:RetailApp#addCategory" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addproduct">
+      <soap:operation soapAction="urn:RetailApp#addCategory" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateproduct">
+      <soap:operation soapAction="urn:RetailApp#updateproduct" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="GetAllProducts">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="searchProduct">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addProductsToCart">
+      <soap:operation soapAction="urn:RetailApp#addProductsToCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeFromCart">
+      <soap:operation soapAction="urn:RetailApp#addProductsToCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="GetAllCategories">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllProductsInCart">
+      <soap:operation soapAction="urn:RetailApp#getAllProductsInCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="checkout">
+      <soap:operation soapAction="urn:RetailApp#checkout" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RetailApp">
+    <port name="RetailAppPort" binding="tns:RetailAppBinding">
+      <soap:address location="http://localhost:99/retail/retail.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:99/retail/retail.php</con:endpoint></con:endpoints><con:operation id="bc3b9f6e-97e7-4e7e-8404-a356e4aa0464" isOneWay="false" action="urn:RetailApp#addCategory" name="addcategory" bindingOperationName="addcategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="67ad6f6f-00e8-4a5c-8fcb-2ad9e518954a" isOneWay="false" action="urn:RetailApp#addCategory" name="addproduct" bindingOperationName="addproduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="a3a7a542-e921-4371-8601-781732a10466" isOneWay="false" action="urn:RetailApp#addProductsToCart" name="addProductsToCart" bindingOperationName="addProductsToCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="6f70f98c-6564-468c-a363-7f42384801d5" isOneWay="false" action="urn:RetailApp#checkout" name="checkout" bindingOperationName="checkout" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="1d84839d-f95d-43a7-88aa-5036eca48684" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="GetAllCategories" bindingOperationName="GetAllCategories" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="9eabe52f-408d-42e8-af76-fb6af27a1baa" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="GetAllProducts" bindingOperationName="GetAllProducts" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="aeb91f15-3d97-416a-98cc-e70bfb131b0f" isOneWay="false" action="urn:RetailApp#getAllProductsInCart" name="getAllProductsInCart" bindingOperationName="getAllProductsInCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="42546262-7d25-45a5-9648-d600fd089ab2" isOneWay="false" action="urn:RetailApp#addProductsToCart" name="removeFromCart" bindingOperationName="removeFromCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="a6153681-9753-4e23-a254-f7617baf6163" isOneWay="false" action="urn:RetailApp#RetailLogin" name="RetailLogin" bindingOperationName="RetailLogin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="7e10f609-1364-48e8-a4cf-8eee735ddda3" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="searchProduct" bindingOperationName="searchProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation id="cc30aeba-1b29-4239-9dd3-95bcd65b8e17" isOneWay="false" action="urn:RetailApp#updateproduct" name="updateproduct" bindingOperationName="updateproduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation></con:interface><con:testSuite id="a2f73b65-15b8-4339-b3a1-fbaa4732bbe8" name="TestSuiteA"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9ac7ad66-950e-4891-9d1b-bc31dad7efc9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Login" searchProperties="true"><con:settings/><con:testStep type="request" name="LoginRequest" id="5ca5bbaa-6230-45e2-adb5-9a93e98a9e28"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="LoginRequest" id="15276a89-71ba-46b6-8a75-51f7ade09fe1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:99/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <credentials xsi:type="nam:credentials" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <username xsi:type="xsd:string">${Username}</username>\r
+            <password xsi:type="xsd:string">${Password}</password>\r
+         </credentials>\r
+      </urn:RetailLogin>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="GroovyLogin" id="769b6188-10bb-4947-a28f-4ccf53ed63ae"><con:settings/><con:config><script>//Get test Suite name from context 
+import com.eviware.soapui.support.GroovyUtils
+import com.eviware.soapui.support.XmlHolder
+
+log.info " Test Suite Name " + "----------- "  +testRunner.testCase.testSuite.getName() + "----------- " ;// here name is predefined property 
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptA1"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1')
+//log.info ' UserName at step level value is ' + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Username');
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " TCID from Eclipse " + context.expand('${#TCID}')
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Password passed from  Eclipse "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID);
+
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils();
+//  Extract Reponse and return the map to calling point 
+def Response = context.expand ('${LoginRequest#Response}')
+log.info  "   response i "  + Response;
+
+def XmlHolder xmlholderobj = groovyUtils.getXmlHolder(Response);
+
+
+def sessionid = xmlholderobj.getNodeValue('//sessionid' ) 
+def actual_loginstatus = xmlholderobj.getNodeValue('//loginstatus' )
+def actual_role = xmlholderobj.getNodeValue('//role' )
+
+log.info ' sessionid value is == ' + sessionid
+log.info ' actual loginstatus value is ==' + actual_loginstatus
+log.info ' actual_role value is ==  ' + actual_role
+
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid',sessionid)
+testRunner.testCase.setPropertyValue('actual_loginstatus',actual_loginstatus)
+testRunner.testCase.setPropertyValue('actual_role',actual_role)
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName()+ "--" + context.TCID + "  -----End "
+
+
+
+</script></con:config></con:testStep><con:properties><con:property><con:name>TCID</con:name><con:value/></con:property><con:property><con:name>sessionid</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>actual_loginstatus</con:name><con:value>Please send valid data</con:value></con:property><con:property><con:name>actual_role</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property></con:properties></con:testCase><con:testCase id="f8228d42-849b-481e-8ea2-24a04c3614cb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SearchProduct" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy_Call_Login" id="66e64af5-b8c0-4a32-b420-f0dc0a6cbd9a"><con:settings/><con:config><script>def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ); 
+def project_level = context.testCase.testSuite.project;  
+def Scriptinstance = new GroovyScriptEngine(project_level.getPropertyValue("ExtensionPath")).loadScriptByName("Utilities.groovy").newInstance(); 		
+assert Scriptinstance!= null  
+Scriptinstance.log =log; 
+Scriptinstance.testRunner=testRunner; 
+Scriptinstance.project_level = testRunner.testCase.testSuite.project; 
+Scriptinstance.groovyUtils=groovyUtils;  
+Scriptinstance.RetailLogin("User");  
+//def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context ) 	
+// location of script file is relative to SOAPUI project file. 	
+//String scriptPath = groovyUtils.projectPath + "/soapUIExtensions/" 	
+//String scriptPath =   "D:/03.03_SoapUI_WS/soapUIExtensions/soapUIExtensions/" 		 
+// Create Groovy Script Engine to run the script. 	
+//GroovyScriptEngine gse = new GroovyScriptEngine(scriptPath) 		
+// Load the Groovy Script file 	
+//def externalScript = gse.loadScriptByName("Utilities.groovy") 		
+// Create a runtime instance of script 		
+// run the login method in the external script 
+//def projectHome =	groovyUtils.projectPath 
+//def scriptPath =  projectHome + "/soapUIExtensions/"; 
+//GroovyScriptEngine gse = new GroovyScriptEngine(scriptPath); 
+//def externalScript = gse.loadScriptByName("Utilities.groovy") 
+//def Scriptinstance = externalScript.newInstance()</script></con:config></con:testStep><con:testStep type="request" name="SearchProductRequest" id="86dd2676-6af8-4361-9fb4-88cb3b5940e5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>searchProduct</con:operation><con:request name="SearchProductRequest" id="1d32ef9c-b4ae-44fd-a28a-e9dc27713e27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:99/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:searchProduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <productname xsi:type="xsd:string">Medimix</productname>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">${#Project#RetailUserSessionID}</sessionid>\r
+            <username xsi:type="xsd:string">${#Project#RetailUser}</username>\r
+         </sessiondata>\r
+      </urn:searchProduct>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="0a4e66bf-9ab9-4a45-bc6f-ea240a9c9d05" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseA3" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptA3" id="e47ace8e-c845-4702-a973-ebe40544a84c"><con:settings/><con:config><script>//Get test Suite name from context 
+
+
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptA3"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " TCID from Eclipse " + context.expand('${#TCID}')
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','A3hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','A3LoggedIn')
+testRunner.testCase.setPropertyValue('role','A3Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="e523e59d-7ac1-4d6e-8683-5afc63473507" name="TestSuiteB"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="1ef5dae1-73ff-413b-a392-eaae7a1a4bde" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseB1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptB1" id="12ccfbd2-c61a-4bc9-8db9-f2992c2eddda"><con:settings/><con:config><script>//Get test Suite name from context 
+
+log.info " Test Suite Name " + "----------- "  +testRunner.testCase.testSuite.getName() + "----------- " ;// here name is predefined property 
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptB1"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','B1hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','B1LoggedIn')
+testRunner.testCase.setPropertyValue('role','B1Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "
+
+
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="84c99f21-0a4d-4201-9de7-ad3463157097" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseB2" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptB2" id="5d7208a9-2710-42a3-8fb9-3c78f351c84a"><con:settings/><con:config><script>//Get test Suite name from context 
+
+
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptB2"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','B2hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','B2LoggedIn')
+testRunner.testCase.setPropertyValue('role','B2Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "
+
+
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a39cd8db-bd7d-4392-9c8e-9296314220c3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseB3" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptB3" id="0c9f1afb-20b2-478e-a36d-20e055018766"><con:settings/><con:config><script>//Get test Suite name from context 
+
+
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptB3"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','B3hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','B3LoggedIn')
+testRunner.testCase.setPropertyValue('role','B3Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "
+
+
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="ea65fae7-1be6-42e2-b779-3b2aa83a6bb1" name="TestSuiteC"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9508665a-828e-4ec2-b7e1-3ec44f284ce4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseC1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptC1" id="321a3304-f6e5-4cf0-88f5-d1363e5dd2e1"><con:settings/><con:config><script>//Get test Suite name from context 
+
+log.info " Test Suite Name " + "----------- "  +testRunner.testCase.testSuite.getName() + "----------- " ;// here name is predefined property 
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptC1"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','C1hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','C1LoggedIn')
+testRunner.testCase.setPropertyValue('role','C1Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="41e0e4de-25bd-46c0-80b1-861aa2e3456f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseC2" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptC2" id="98865c21-9d20-4a57-aa6e-1385536767a7"><con:settings/><con:config><script>//Get test Suite name from context 
+
+
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptC2"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','C2hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','C2LoggedIn')
+testRunner.testCase.setPropertyValue('role','C2Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="23f13da4-1830-4342-88d3-69a0dcbfefb2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseC3" searchProperties="true"><con:settings/><con:testStep type="groovy" name="GroovyScriptC3" id="2a9772bf-ba2a-4dd3-b31c-c13c4d754615"><con:settings/><con:config><script>//Get test Suite name from context 
+
+
+log.info " Test Case  Name " + "----------- "  +testRunner.testCase.getName() + "----------- " ;// here name is predefined property 
+log.info " Test STEP  Name " + "----------- "  +testRunner.testCase.testSteps["GroovyScriptC3"].getName();// here name is predefined property 
+
+// you can  get a CUSTOM property at any level using below 
+
+// def Project_LevelContext = testRunner.testCase.testSuite.project
+//def TestSuite_LevelContext = testRunner.testCase.testSuite
+//log.info " Test Suite Name " + TestSuite_LevelContext.getPropertyValue("XYZ");
+//def Testuite_LevelContext = testRunner.testCase.testSuite
+// log.info " Test Suite Name " + "----------- "  + context.expand ('${#TestSuite#XYZ}') + "----------- " ;
+//  log.info " Test Step Level props  " + testRunner.testCase.testSteps["SOAP Request"].getPropertyValue('Property1');
+
+
+//Get the properties  which will  be passed from Eclipse into SoapUI runtime
+//
+log.info " User name passed from Eclipse " + context.expand('${#Username}');
+log.info " Pasword passed from "           + context.expand('${#Password}');
+
+//SET  some Properties  in SoapUI  and Send them back to Eclipse 
+//
+
+def TCID = context.expand('${#TCID}')
+testRunner.testCase.setPropertyValue('TCID',TCID)
+testRunner.testCase.setPropertyValue('sessionid','C3hdka5667gajga129379')
+testRunner.testCase.setPropertyValue('loginstatus','C3LoggedIn')
+testRunner.testCase.setPropertyValue('role','C3Admin')
+log.info " From SoapUI to Eclipse SessionId " + context.expand('${#SessionId}');
+log.info " From SoapUI to Eclipse  LoginStatus " + context.expand('${#LoginStatus}')
+log.info " From SoapUI to Eclipse role  " + context.expand('${#role}')
+
+
+log.info "End OF Test Case -----" + testRunner.testCase.getName() + "  -----End "
+
+</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>RetailUser</con:name><con:value>rojanagireddy@gmail.com </con:value></con:property><con:property><con:name>RetailUserPswd</con:name><con:value>RojaKar7</con:value></con:property><con:property><con:name>AdminUser</con:name><con:value>rojanagireddy@gmail.com__soapadmin </con:value></con:property><con:property><con:name>AdminUsrPswd</con:name><con:value>RojaKar7</con:value></con:property><con:property><con:name>ExtensionPath</con:name><con:value>D:\03.03_SoapUI_WS\soapUIExtensions\soapUIExtensions\</con:value></con:property><con:property><con:name>AdminsessionID</con:name><con:value>I3x503whgY1525093680</con:value></con:property><con:property><con:name>RetailUserSessionID</con:name><con:value>DrI42qrVe91525093827</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

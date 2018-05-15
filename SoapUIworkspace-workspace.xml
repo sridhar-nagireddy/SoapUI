@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="Projects" soapui-version="5.4.0" projectRoot="" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>Can Change</con:description>
+  <con:settings/>
+  <con:project name="Retail_For_MOCK">D:/03.03_SoapUI_WS/retail-soapui-project.xml</con:project>
+  <con:project name="Retail2">D:/03.03_SoapUI_WS/Retail2-soapui-project.xml</con:project>
+  <con:project name="Retail3">D:/03.03_SoapUI_WS/Retail3-soapui-project.xml</con:project>
+  <con:project name="Retail1">D:/03.03_SoapUI_WS/Retail1-soapui-project.xml</con:project>
+  <con:project name="Core_Retail">D:/03.03_SoapUI_WS/Core-Retail-soapui-project.xml</con:project>
+  <con:collectInfoForSupport>false</con:collectInfoForSupport>
+</con:soapui-workspace>
