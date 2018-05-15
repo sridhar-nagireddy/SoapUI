@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyAntBuildFileExample01" default="Info" basedir=".">
+	<property name = "Environment" value = "Test" />
+	<property name = "ReportDir" value = "$D:\9999_Temp\SoapResults\HTML_Reports" />
+	<property name = "XmlDir"   value = "D:\9999_Temp\SoapResults" />
+	
+<!-- ANT will start execution from here by   -->
+<target  name="Info">
+	<echo> Ant version is ${ant.version}</echo>
+	<echo> Ant file is ${ant.file} </echo>
+	<echo> Base dir is ${basedir}</echo>
+	<echo> Report Dir is ${ReportDir} </echo>
+</target>
+<target name="generateReports">
+				<delete dir="${ReportDir}" />
+				<mkdir dir="${ReportDir}" />
+				
+				<junitreport todir="${ReportDir}">
+					<fileset dir="${XmlDir}">
+						<include name="*.xml" />
+					</fileset>
+					<report format="frames" todir="${ReportDir}" />
+				</junitreport>
+			</target>
+</project>
