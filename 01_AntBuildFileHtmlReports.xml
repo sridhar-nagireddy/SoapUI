@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MyAntBuildFileExample01" default="Info" basedir=".">
 	<property name = "Environment" value = "Test" />
-	<property name = "ReportDir" value = "$D:\9999_Temp\SoapResults\HTML_Reports" />
+	<property name = "ReportDir" value = "D:\9999_Temp\SoapResults\HTML_Reports" />
 	<property name = "XmlDir"   value = "D:\9999_Temp\SoapResults" />
 	
 <!-- ANT will start execution from here by   -->
