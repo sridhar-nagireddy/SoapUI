@@ -1,3 +1,3 @@
 echo %HOME%
 
-testrunner.bat -s "CoreRetailTestSuite"  Core-Retail-soapui-project.xml
+D:\03.02_SoapUI_5.4\bin\testrunner.bat -s "CoreRetailTestSuite"  Core-Retail-soapui-project.xml
