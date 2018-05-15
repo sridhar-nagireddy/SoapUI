@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="f667df58-90cd-41c4-bc83-83d212f09acf" activeEnvironment="Default" name="Core_Retail" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="f667df58-90cd-41c4-bc83-83d212f09acf" activeEnvironment="Default" name="Core_Retail" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Report Format(s)" value=""/>
   <con:entry key="Host:Port" value=""/>
-  <con:entry key="Export JUnit Results" value="false"/>
-  <con:entry key="Export All" value="false"/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
   <con:entry key="Save After" value="false"/>
   <con:entry key="Add Settings" value="false"/>
   <con:entry key="WSS Password Type" value=""/>
@@ -12,9 +12,9 @@
   <con:entry key="Select Report Type" value=""/>
   <con:entry key="System Properties" value=""/>
   <con:entry key="Password" value=""/>
-  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Print Report" value="true"/>
   <con:entry key="Open Report" value="false"/>
-  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="true"/>
   <con:entry key="Global Properties" value=""/>
   <con:entry key="Project Properties" value=""/>
   <con:entry key="Project Password" value=""/>
@@ -25,7 +25,7 @@
   <con:entry key="Environment" value="Default"/>
   <con:entry key="Coverage Report" value="false"/>
   <con:entry key="Enable UI" value="false"/>
-  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Root Folder" value="D:\9999_Temp"/>
   <con:entry key="Ignore Errors" value="false"/>
   <con:entry key="Domain" value=""/>
   <con:entry key="Tool Args" value=""/>
@@ -803,4 +803,36 @@
          </sessiondata>\r
       </urn:updateproduct>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="urn:RetailApp#updateproduct"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="urn:RetailApp#updateproduct"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="1776a1d2-abb9-480e-8306-733ba12ea89c" name="TestSuite2"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="23e4a62b-7dca-40a5-98d2-221f37645f9c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" id="61b92478-7fcb-4a75-9a8e-7093de4ffebc" name="addcategory - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addcategory</con:operation><con:request name="addcategory - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9804a9bb-a987-4ade-be3b-d52a60f73fc7"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:99/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addcategory soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <categorydetails xsi:type="nam:testBook" xmlns:nam="http://localhost/retail/namespaces">\r
+            <catgoryName xsi:type="xsd:string">?</catgoryName>\r
+         </categorydetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:addcategory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="eaed12c3-633a-4d7b-99fc-5b46dc363560" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addCategory"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="38cdd0f4-73ac-417f-a7c0-3e1eb1c28ab0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 2" searchProperties="true"><con:settings/><con:testStep type="request" id="36c93b73-569c-4cea-88b8-9eee9591735e" name="addproduct - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addproduct</con:operation><con:request name="addproduct - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b88686d8-2bca-468b-b4df-39a75e84f21e"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:99/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <productdetails xsi:type="nam:addnewproductdetails" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 4 items in any order-->\r
+            <category_name xsi:type="xsd:string">?</category_name>\r
+            <product_name xsi:type="xsd:string">?</product_name>\r
+            <available_quantity xsi:type="xsd:string">?</available_quantity>\r
+            <price xsi:type="xsd:string">?</price>\r
+         </productdetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:addproduct>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="91867c7f-4d6d-4be9-bb8d-00692757aa91" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addCategory"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
